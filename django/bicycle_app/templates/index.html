@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AnyCompany bicycle parts</title>
+    <link rel="icon" href="{% static 'logo-black.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+     {% block head_extra %}{% endblock head_extra %}
+</head>
+<body>
+    
+    <div class="banner">
+        <table>
+            <tr>
+                <td><img src="{% static 'logo-black.png' %}"></td>
+                <td>AnyCompany Bicycle Parts</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="nav-menu">
+        <a href="{% url 'index' %}">Products</a>
+        <a href="{% url 'all_orders' %}">Order history</a>
+        <a href="#services-link">Services</a>
+        <a href="#location-link">Location</a>
+        <a href="#about-us-link">About us</a>
+    </div>
+
+    {% block content %}
+    <!--product list will go here-->
+    {% endblock content %}
+
+   <!-- Sidebar (Location + About Us) -->
+    <div class="sidebar">
+        <div class="location" id="location-link">
+            <h2>Store location</h2>
+            <p>
+                <b>Address:</b>
+                <br>100 Anywhere Street, Anytown, USA
+                <br><br>
+
+                <b>Phone:</b>
+                <br>1-800-555-1212
+                <br><br>
+
+                <b>Hours:</b>
+                <br>Mon-Fri 7am-7pm
+                <br>Sat 8am-6pm
+                <br>Sun closed
+            </p>
+            <img src="{% static 'map.jpeg' %}" width="130px">
+            <br>
+            <a href="https://www.openstreetmap.org/search?query=nyc" target="_blank">Get Directions</a>
+        </div>
+        
+        {# new wrapper for gray background #}
+        <div class="about-us" id="about-us-link">
+            <h2>About us</h2>
+            <p id="italicize">AnyCompany was founded by a group of friends who share a passion for bicycling and they
+            all agree that it is always a great day to bike!</p>
+            <img class="hero" src="{% static 'biking-outdoors.jpeg' %}" alt="About us image">
+            {# your buttons… #}
+            <div class="theme">
+                <button type="button" id="light_button">Light banner</button>
+                <button type="button" id="dark_button">Dark banner</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="services" id="services-link">
+        <h2>Services</h2>
+        <div class="services-wrapper">
+        <div class="services-text">
+            <p>Do you need help installing your bicycle replacement parts or does your bike need an adjustment?</p> 
+             <p> We can help with that. </p>
+            <p>Call one of our store locations to schedule an appointment and to get a service quote.</p>
+            <p>All of our experienced service techinicians have passed a rigorous certification program that has
+                industry-wide recognition.</p>
+            <p><b>We offer a wide variety of services including:</b></p>
+            <ul>
+                <li>Parts installation</li>
+                <li>Bicycle tune ups</li>
+                <li>Flat tire repair</li>
+                <li>Derailleur adjustment</li>
+                <li>Brake caliper adjustment</li>
+            </ul>
+    
+        </div>
+  
+        <div class="cert">
+            <img src="{% static 'specialist.png' %}" height="140" width="150px">
+        </div>
+    </div>
+          
+    <div class="footer">
+        <p>&copy; 2025, Amazon Web Services, Inc. or its Affiliates. All rights reserved.</p>
+        </div>
+    </div>
+    
+     <script>
+            var light_button = document.querySelector('#light_button');
+            var dark_button = document.querySelector('#dark_button');
+
+            function updateBanner(backgroundColor, textColor, logoUrl) {
+                var banner_div = document.querySelector(".banner");
+                banner_div.style.backgroundColor = backgroundColor;
+                banner_div.style.color = textColor;
+
+                var logo = document.querySelector(".banner img");
+                logo.setAttribute("src", logoUrl);
+            }
+            light_button.addEventListener('click', function () {
+                updateBanner("white", "black", "{% static 'logo-white.png' %}");
+            });
+
+            dark_button.addEventListener('click', function () {
+                updateBanner("black", "white", "{% static 'logo-black.png' %}");
+            });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var form = document.querySelector('.products form');
+
+                form.addEventListener('submit', function (event) {
+                    var inputElements = form.querySelectorAll('input[type="number"]');
+                    var atLeastOneSelected = false;
+
+                    // Loop through each input element
+                    inputElements.forEach(function (input) {
+                        var quantity = parseInt(input.value, 10);
+                        if (quantity > 0) {
+                            atLeastOneSelected = true;
+                        }
+                    });
+
+                    // If no quantities selected
+                    if (!atLeastOneSelected) {
+                        event.preventDefault();
+                        alert('Please choose a quantity greater than 0 for at least one product.');
+                    }
+                });
+            });
+        </script>
+</body>
+</html>

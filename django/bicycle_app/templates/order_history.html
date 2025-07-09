@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="products">
+    <div class="order-details">
+        <div class="order_summary">
+        <h2>Order history</h2>
+        <table>
+            <tr>
+               <td><p>Order number</p></td>
+               <td><p>Order time</p></td>
+               <td><p>Total amount</p></td>
+               <td><p>Details</p></td>
+            </tr>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.order_date_time }}</td>
+                <td>${{ order.amount }}</td>
+                <td><a href="{% url 'lookup_order' order.id %}">Order details</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

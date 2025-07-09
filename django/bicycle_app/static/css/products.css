@@ -1,0 +1,90 @@
+/* =========== GRID LAYOUT =========================================== */
+:root { --card-w: 220px; }  
+
+#products-link .grid {
+  display: grid;
+  gap: 2rem;
+  justify-content: space-evenly;  /* or space-around / space-evenly */
+
+  /* desktop: 4 columns */
+  grid-template-columns: repeat(4,1fr);
+
+  /* space on the right for sidebar/banner (quick-fix) */
+  margin: 1rem 15px 1.5rem 10px;   /* top right bottom left */
+}
+
+/* tablet */
+@media (max-width: 1100px) {
+  #products-link .grid { grid-template-columns: repeat(3, 1fr); }
+}
+/* phone */
+@media (max-width: 700px) {
+  #products-link .grid { grid-template-columns: repeat(2, 1fr); }
+}
+/* very narrow */
+@media (max-width: 460px) {
+  #products-link .grid { grid-template-columns: 1fr; }
+}
+
+/* =========== CARD STYLING ========================================== */
+
+#products-link .card {
+  background: #fff;
+  border: 1px solid #e3e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  /* scale height to keep proportion */
+  
+  min-height: 140px;  
+
+  /* vertical centering and even spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+}
+
+#products-link .card img {
+  width: 120px;       /* uniform thumb box */
+  height: 120px;
+  object-fit: contain;
+  object-position: center;
+  margin-bottom: 0.75rem;
+}
+
+#products-link .name  { font-weight: 600; margin: 0.25rem 0; text-transform: capitalize; } 
+#products-link .price { color: #1e88e5;   margin: 0 0 0.75rem; }
+
+/* quantity box */
+#products-link input[type="number"] {
+  width: 60px;
+  padding: 4px;
+  margin-left: .25rem;
+}
+
+/* =========== SUBMIT BUTTON ========================================= */
+
+#products-link .submitform {
+  text-align: center;          /* centers the whole button in the row */
+}
+
+#products-link .submitform input[type="submit"] {
+  background: #1e88e5;
+  color: #fff;
+  border: none;
+
+  /* keep vertical padding, but equalize left/right “room”  */
+            /* top/bottom = 10px, no side padding */
+  width: 100px;                /* give it a fixed width */
+  text-align: center;          /* text is now horizontally centered */
+
+  border-radius: 4px;
+  cursor: pointer;
+  font-style: italic;          /* you kept the italic style */
+  transition: background .2s;
+}
+
+#products-link .submitform input[type="submit"]:hover {
+  background: #1565c0;
+}

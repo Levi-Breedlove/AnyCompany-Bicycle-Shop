@@ -1,0 +1,23 @@
+<h2>Test page for submitting form data</h2>
+<form action="order_result" method="POST">
+    {% csrf_token %} 
+    
+    <p>Product: {% block content %}{{ product_items.0.product_name }}{% endblock content %}</p>
+    
+    <input type="hidden" name="product_name" value="cassette">
+    <input type="hidden" name="product_id" value="1">
+    <input type="hidden" name="amount" value="50.00">
+    <label>Quantity:</label>
+    <input type="number" name="quantity" value="0" min="0" max="4">
+    <br/><br/>
+     
+    <p>Product: crankset</p>
+    <input type="hidden" name="product_name" value="crankset">
+    <input type="hidden" name="product_id" value="2">
+    <input type="hidden" name="amount" value="215.00">
+    <label>Quantity:</label>
+    <input type="number" name="quantity" value="0" min="0" max="4">
+    <br/><br/>
+
+    <input type="submit" value="Submit" name="placeOrder">
+</form>

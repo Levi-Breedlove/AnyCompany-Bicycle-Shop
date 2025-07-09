@@ -1,0 +1,464 @@
+.banner {
+    background-color: black;
+    color: white;
+    font-size: 250%;
+}
+
+.banner img {
+    height: 150px;
+}
+
+.nav-menu {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.nav-menu a {
+    float: left;
+    display: block;
+    color: white;
+    background-color: grey;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 20%;
+    text-decoration: none;
+    /*stops the links from being underlined*/
+}
+
+.nav-menu a:hover {
+    background-color: darkblue;
+}
+
+h2 {
+    background-color: darkblue;
+    color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: Copperplate;
+    text-align: center;
+}
+
+.products {
+    float: left;
+    width: 75%;
+}
+
+.products table {
+    width: 100%;
+    padding: 10px;
+    table-layout: fixed;
+}
+
+.products img {
+    width: 130px;
+}
+
+.products p {
+    font-family: Copperplate;
+}
+
+.products tr {
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.order-details {
+    padding-left: 15px;
+    padding-right:15px;
+}
+
+.order_summary {
+    table {
+        width: 100%;
+    }
+    td { 
+        text-align: left; 
+        padding-right: 4px;
+    }
+    td:nth-child(2) { 
+        text-align: left; 
+        padding-left: 4px;
+    }
+    td colspan {
+        text-align: left;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    color: black;
+}
+
+.submitform input {
+    width: 120px;
+    height: 30px;
+    color: white;
+    background-color: grey;
+    font-style: italic;
+    font-size: 16px;
+    margin-right: 20px;
+    float: right;
+}
+
+.submitform {
+  overflow: auto;
+  margin-bottom: 70px;  /* adjust 60px to taste */
+}
+
+.sidebar {
+    float: left;
+    width: 25%;
+}
+
+.sidebar p[id="italicize"] {
+    font-style: italic;
+}
+
+.location p {
+ text-align: center;
+ padding: 20px;
+ background: lightgrey;
+ margin-left: 10px;
+ margin-right: 10px;
+ margin-bottom: 62px;
+}
+
+.about-us p {
+    padding: 20px;
+    background: lightgrey;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.location {
+    float: left;
+    width: 100%;
+}
+
+.location img,
+a {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.about-us {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    
+}
+
+.about-us img {
+    margin-left: 5px;
+    max-width: 95.8%;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.services {
+    float: left;
+    width: 100%;
+}
+
+.footer {
+    width: calc(100% - 1px);
+    margin: 0 0px;
+    clear: both;
+    padding: 0.25rem 0;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* 1) no bottom margin on the h2 in that column */
+#location-link h2 {
+  margin-bottom: 0;
+}
+
+/* 2) no top margin on the very first paragraph in that column */
+#location-link > p:first-of-type {
+  margin-top: 0;
+}
+
+/* ── Kill the white gap under the “About us” bar ─────────────────── */
+
+/* 1) No bottom margin on the purple heading */
+#about-us-link h2 {
+  margin-bottom: 0;
+}
+
+/* 2) No top margin on the grey comment box */
+#about-us-link > p:first-of-type {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* kill the gap above/below the About-us photo */
+#about-us-link img {
+  /* makes margin:0 behave predictably */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+/* ── Edge-to-edge hero under About-us ─────────────────────────────── */
+
+
+/* make the Light/Dark buttons span the same full width as the hero image */
+#about-us-link .theme {
+  display: block;               
+  width: calc(100% + 10px);     
+  margin: 0 -5px;               
+  text-align: center;           
+  padding: 1.5rem 0;            
+}
+
+#about-us-link .theme button {
+  margin: 0 .5rem;              /* small gap between the two buttons */
+}
+
+#about-us-link {
+  background: lightgrey;      /* your gray */
+  padding: 0;  
+  margin-top: 65px;/* we’ll pad per-element */
+  margin: 65px 10px 65px 10px; 
+  width: calc(100% - 20px);/* top / sides / bottom */
+  box-sizing: border-box;     /* include any padding in that width */
+  clear: both;
+  text-align: center;/* sit below earlier floats */
+}
+
+#about-us-link > p {
+  margin: 0;                  /* kill top/bottom margins */
+  padding: 25px;              /* space your text inside the gray */
+  font-style: italic;
+}
+
+#about-us-link > img.hero {
+  display: block;
+  width: 90%;                 /* or 100%, or whatever % you like */
+  max-width: 350px;           /* optional cap on really wide screens */
+  height: auto;               /* keep aspect ratio */
+  margin: 0px auto;          /* gap above + horizontal centering */
+}
+
+#about-us-link h2 {
+  margin: 0;                  /* kill bottom margin */
+  padding: 10px;              /* breathe room inside the blue bar */
+  text-align: center;
+}
+
+/* ── Flush Services image up under the blue bar ──────────────── */
+
+/* ── Gray card for Services ─────────────────────────── */
+#services-link {             
+  margin: 22px 10px;           
+  background: white;       
+  padding: 0;                  
+  margin-left:  10px;
+  margin-right: 10px;                  
+  width:73.5%;                
+  box-sizing: border-box;
+  position: relative;
+  
+  
+}
+
+/* Flush the blue bar right into the gray */
+#services-link > h2 {
+  margin: 0;                   /* kill default top/bottom */
+  padding: 10px;               /* breathing room inside the blue bar */
+  text-align: center;
+}
+
+/* Add padding around the inner content */
+#services-link > .services-wrapper {
+  padding: 0px;               /* your gray will wrap both image & text */
+}
+
+/* If you want the flex container itself to sit flush: */
+.services-wrapper {
+  margin: 0; 
+  /* remove any earlier margins */
+}
+
+#services-link .cert {
+  position: absolute;
+  bottom: 8rem;                     /* 16px up from the card’s bottom */
+  left:   0rem;                     /* 16px in from the card’s left */
+  /* let it scale a bit, but cap its size so it never gets giant or too tiny */
+  width: clamp(120px, 15%, 160px);  
+}
+
+#services-link .cert img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 8px solid transparent;  
+  box-sizing: border-box;    
+  padding: 8px; 
+  
+}
+/* wrap all three columns in this */
+
+#services-link .services-text {
+  float: none;           /* take it out of the float stack             */
+  width: 75%;            /* any width you like (50–70 % works well)    */
+  margin: 0 auto;        /* ⬅︎⬅︎ puts that block in the horizontal center */
+  text-align: center;  
+  /* existing rules… */
+  padding-left: 30px;  
+  box-sizing: border-box;
+  border-left: 10px solid transparent;
+
+/* center the actual paragraph text           */
+}
+
+/* 2️⃣  If you have a bulleted list and want the bullets left-aligned
+      (optional — delete if you like them centered) */
+#services-link .services-text ul {
+  display: inline-block; /* makes the UL honor text-align:center above */
+  text-align: left;      /* bullets and text line up under each other  */
+  
+}
+
+#services-link .services-text p,
+
+#services-link .services-text ol {
+  margin: 0.5rem 0;          /* top & bottom spacing — adjust to taste   */
+  line-height: 1;        /* a touch more line spacing (optional)     */
+}
+
+#services-link .services-text ul {
+  margin-top: 0;        /* nuke the default gap above the list */
+  padding-left: 1.25rem;/* keep your bullets indented nicely */
+}
+
+@media (max-width: 767px) {
+  /* give the lane back to the text */
+  #services-link { padding-left: 0; }
+
+  /* put the badge back in normal flow, centred */
+  #services-link .cert {
+    position: static;        /* no absolute pinning       */
+    margin: 1rem auto 0;     /* centred under the heading */
+    width: 140px;            /* optional -- smaller badge */
+  }
+}
+
+
+
+/* Mobile phones (up to 600px wide) */
+@media (max-width: 600px) {
+  /* 1) Make the Services card itself more compact */
+  #services-link {
+    width: 100%;               /* full-width on small screens */
+    padding-block: 0.5rem;     /* less top/bottom space */
+  }
+  #services-link > h2 {
+    padding-block: 0.5rem;     /* smaller blue bar height */
+    font-size: 1.2rem;         /* scale down the heading text */
+  }
+
+  /* 2) Tweak the badge so it’s not huge */
+  #services-link .cert {
+    width: 100px !important;   /* lock into a smaller width */
+    bottom: 1rem;              /* lift it up a bit */
+    left: 50%;                 /* center under Services bar */
+    transform: translateX(-50%);
+  }
+
+  /* 3) Shrink the paragraph text & gap */
+  #services-link .services-text {
+    width: auto;
+    margin: 0 1rem;
+    padding-left: 0;
+    border-left: none;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  #services-link .services-text p,
+  #services-link .services-text ul {
+    margin: 0.75rem 0;
+    line-height: 1.3;
+  }
+
+  /* 4) Tidy up the footer */
+  .footer {
+    font-size: 0.7rem;         /* smaller legal text */
+    padding-block: 0.25rem;    /* less vertical padding */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    .services-section {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        background-color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+        border-radius: 8px 8px 0 0;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .services-section {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+        border-radius: 12px 12px 0 0;
+        z-index: 999;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+  #services-link {
+    /* back into the document flow */
+    position: static;      /* or simply remove position entirely */
+    clear: both;           /* sit below any floated columns */
+    float: none;           /* cancel any earlier floats */
+
+    /* control width & center */
+    width: 80%;            /* or whatever percentage you like */
+    max-width: 900px;      /* optional cap */
+    margin: 50px auto 0;   /* top-margin to separate from content, auto LR for centering */
+    margin-top: 60px;  
+    /* preserve your styling */
+    background: white;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  /* keep the “Services” bar snug against its card */
+  #services-link > h2 {
+    margin: 0;
+    padding: 10px;
+  }
+}
+
+#services-link { position: relative; }
+#services-link .cert {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  width: clamp(120px,15%,160px);
+}

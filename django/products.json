@@ -1,0 +1,123 @@
+[
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "cassette",
+            "description": "sprockets, gear wheels",
+            "price": "50.00",
+            "product_group": "1",
+            "image_url": "cassette.jpeg"
+        }
+    }, 
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "crankset",
+            "description": "Made of Forged Alloy 6061",
+            "price": "215.00",
+            "product_group": "1",
+            "image_url": "crank-arm.jpeg"
+        }
+    }, 
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "chain",
+            "description": "1/2 x 11/128 Inch 116 Links",
+            "price": "35.00",
+            "product_group": "1",
+            "image_url": "chain.jpeg"
+        }
+    }, 
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "bell",
+            "description": "pretty loud",
+            "price": "18.00",
+            "product_group": "2",
+            "image_url": "bell.jpeg"
+        }
+    }, 
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "gear shifter",
+            "description": "very precise",
+            "price": "32.00",
+            "product_group": "1",
+            "image_url": "gear-shifter.jpeg"
+        }
+    }, 
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "inner tube",
+            "description": "fix any flat tire",
+            "price": "14.00",
+            "product_group": "3",
+            "image_url": "inner-tube.jpeg"
+        }
+    }, 
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "saddle",
+            "description": "better with than without",
+            "price": "55.00",
+            "product_group": "2",
+            "image_url": "seat.jpeg"
+        }
+    }, 
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "wheel",
+            "description": "an extra does not hurt",
+            "price": "179.00",
+            "product_group": "2",
+            "image_url": "wheel.jpeg"
+        }
+    },
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "pedals",
+            "description": "you really nead them",
+            "price": "79.00",
+            "product_group": "1",
+            "image_url": "pedals.jpeg"
+        }
+    }, 
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "brake disk",
+            "description": "no more noise on a wet day",
+            "price": "45.00",
+            "product_group": "4",
+            "image_url": "brake-disk.jpeg"
+        }
+    }, 
+
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "hydraulic brake",
+            "description": "stop quickly when necessary",
+            "price": "69.00",
+            "product_group": "4",
+            "image_url": "hydraulic-brake.jpeg"
+        }
+    }, 
+    {
+        "model": "bicycle_app.Product",
+        "fields": {
+            "product_name": "sports glasses",
+            "description": "wanna look cool?",
+            "price": "129.00",
+            "product_group": "2",
+            "image_url": "sports-glasses.jpeg"
+        }
+    }
+]

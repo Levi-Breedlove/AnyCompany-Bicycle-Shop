@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block content %}
+  <div class="products">
+    <h2>Order Confirmation</h2>
+
+    <table class="order_summary">
+      <tr><th colspan="2">Order summary</th></tr>
+      <tr>
+        <td>Order number:</td>
+        <td>{{ order.id }}</td>
+      </tr>
+      <tr>
+        <td>Order time:</td>
+        <td>{{ order.order_date_time }}</td>
+      </tr>
+      <tr>
+        <td>Total amount:</td>
+        <td>${{ order.amount }}</td>
+      </tr>
+    </table>
+
+    <table class="order_line_items">
+      <tr><th>Product</th><th>Quantity</th><th>Cost</th></tr>
+      {% for line in order_details %}
+        <tr>
+          <td>{{ line.product.product_name }}</td>
+          <td>{{ line.quantity }}</td>
+          <td>${{ line.amount }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block head_extra %}
+  <link rel="stylesheet" href="{% static 'css/products.css' %}">
+{% endblock head_extra %}
+
+{% block content %}
+<div class="products" id="products-link">
+    <h2>Products</h2>
+    <form action="{% url 'process_order' %}" method="post" id="order_form">
+    {% csrf_token %}
+    
+       <div class="grid">
+      {% for item in product_items %}
+        <div class="card">
+          {# If image_url is an ImageField, .url already has /media/... #}
+          <img src="{% static item.image_url %}" alt="{{ item.product_name }}" width="120">
+
+          <p class="name">{{ item.product_name }}</p>
+          <p class="price">${{ item.price }}</p>
+
+          <input type="hidden" name="product_id" value="{{ item.id }}">
+          <input type="hidden" name="amount"     value="{{ item.price }}">
+
+          <label>Quantity:
+            <input type="number" name="quantity_{{ item.id }}" value="0" min="0" max="4">
+          </label>
+        </div>
+      {% endfor %}
+    </div>
+    
+        <div class="submitform">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+{% endblock content %}
