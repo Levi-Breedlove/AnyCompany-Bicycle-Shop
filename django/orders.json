@@ -1,0 +1,18 @@
+[
+    {
+        "model": "bicycle_app.Order",
+        "fields": {
+            "order_number": "1",
+            "order_date_time": "2024-01-12 22:22:30.476697+00:00",
+            "amount": "50.14"
+        }
+    },
+    {
+        "model": "bicycle_app.Order",
+        "fields": {
+            "order_number": "2",
+            "order_date_time": "2024-01-12 23:22:30.476697+00:00",
+            "amount": "75.01"
+        }
+    }
+]

@@ -8,7 +8,7 @@
      {% block head_extra %}{% endblock head_extra %}
 </head>
 <body>
-    
+    <div id="app-wrapper">
     <div class="banner">
         <table>
             <tr>
@@ -40,7 +40,7 @@
                 <br><br>
 
                 <b>Phone:</b>
-                <br>1-800-555-1212
+                <br>1-800-123-4567
                 <br><br>
 
                 <b>Hours:</b>
@@ -70,6 +70,9 @@
     <div class="services" id="services-link">
         <h2>Services</h2>
         <div class="services-wrapper">
+            <div class="image-box left">
+      <img src="{% static 'specialist.jpeg' %}" alt="Certified Workshop">
+       </div>
         <div class="services-text">
             <p>Do you need help installing your bicycle replacement parts or does your bike need an adjustment?</p> 
              <p> We can help with that. </p>
@@ -86,9 +89,10 @@
             </ul>
     
         </div>
-  
-        <div class="cert">
-            <img src="{% static 'specialist.png' %}" height="140" width="150px">
+        
+
+        <div class="image-box right">
+      <img src="{% static 'specialist.png' %}" alt="Certified Badge">
         </div>
     </div>
           
@@ -96,7 +100,7 @@
         <p>&copy; 2025, Amazon Web Services, Inc. or its Affiliates. All rights reserved.</p>
         </div>
     </div>
-    
+    </div>
      <script>
             var light_button = document.querySelector('#light_button');
             var dark_button = document.querySelector('#dark_button');
@@ -140,5 +144,26 @@
                 });
             });
         </script>
+        <script>
+(function(){
+  const DESIGN_WIDTH  = 1920;
+  const DESIGN_HEIGHT = 1200;
+
+  function rescale(){
+    // how much we’d need to scale to fit width
+    const scaleX = window.innerWidth  / DESIGN_WIDTH;
+    // how much to fit height
+    const scaleY = window.innerHeight / DESIGN_HEIGHT;
+    // pick the smaller so nothing overflows
+    const scale  = Math.min(scaleX, scaleY);
+
+    // apply uniform zoom
+    document.body.style.zoom = scale;
+  }
+
+  window.addEventListener('resize', rescale);
+  rescale();  // initial
+})();
+</script>
 </body>
 </html>

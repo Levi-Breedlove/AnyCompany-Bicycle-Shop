@@ -3,7 +3,7 @@
 
 #products-link .grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.75rem;
   justify-content: space-evenly;  /* or space-around / space-evenly */
 
   /* desktop: 4 columns */
@@ -33,7 +33,7 @@
   border: 1px solid #e3e8f0;
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.185);
   /* scale height to keep proportion */
   
   min-height: 140px;  
@@ -76,7 +76,7 @@
 
   /* keep vertical padding, but equalize left/right “room”  */
             /* top/bottom = 10px, no side padding */
-  width: 100px;                /* give it a fixed width */
+  width: 120px;                /* give it a fixed width */
   text-align: center;          /* text is now horizontally centered */
 
   border-radius: 4px;
@@ -87,4 +87,24 @@
 
 #products-link .submitform input[type="submit"]:hover {
   background: #1565c0;
+}
+
+.pagination {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.page-count {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.page-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #0056b3;
+}
+
+.page-links a:hover {
+  text-decoration: underline;
 }

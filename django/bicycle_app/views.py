@@ -1,26 +1,30 @@
 import decimal
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib import messages               # ← ADD THIS
+from django.contrib import messages               
 from .models import Product, Order, Order_Item
 from django.core.exceptions import ValidationError
-import decimal
-
-
 import json
 import pprint                                     
 from django.core import serializers
+from django.core.paginator import Paginator
 
 def index(request):
     print('\n***LOG: in "index" function')
     product_items = Product.objects.all()
     
-    #The 4 lines below used during VIEW TESTING 
-    jsondata = serializers.serialize('json', product_items)  
-    json_to_runserver = json.loads(jsondata)			   	
-    pprint.pprint(json_to_runserver)	                   	
-    #return HttpResponse('/ page loaded. Check the runserver console for test result.')  
-    context = {'product_items': product_items}    
+   # Django Pagination: show 12 products per page
+    paginator = Paginator(product_items, 12) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    # Debug JSON output still works on full product list
+    jsondata = serializers.serialize('json', product_items)
+    json_to_runserver = json.loads(jsondata)
+    pprint.pprint(json_to_runserver)
+
+    # Pass page_obj instead of product_items directly
+    context = {'page_obj': page_obj}
     return render(request, "products.html", context)
     
 def all_orders(request):

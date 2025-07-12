@@ -7,32 +7,47 @@
 
 {% block content %}
 <div class="products" id="products-link">
-    <h2>Products</h2>
-    <form action="{% url 'process_order' %}" method="post" id="order_form">
+  <h2>Products</h2>
+  <form action="{% url 'process_order' %}" method="post" id="order_form" enctype="multipart/form-data">
     {% csrf_token %}
-    
-       <div class="grid">
-      {% for item in product_items %}
+
+    <div class="grid">
+      {% for product in page_obj %}
         <div class="card">
-          {# If image_url is an ImageField, .url already has /media/... #}
-          <img src="{% static item.image_url %}" alt="{{ item.product_name }}" width="120">
+          <!-- Correct image path usage for ImageField -->
+          <img src="{{ product.image_url.url }}" alt="{{ product.product_name }}" width="120">
 
-          <p class="name">{{ item.product_name }}</p>
-          <p class="price">${{ item.price }}</p>
+          <p class="name">{{ product.product_name }}</p>
+          <p class="price">${{ product.price }}</p>
 
-          <input type="hidden" name="product_id" value="{{ item.id }}">
-          <input type="hidden" name="amount"     value="{{ item.price }}">
+          <input type="hidden" name="product_id" value="{{ product.id }}">
+          <input type="hidden" name="amount"     value="{{ product.price }}">
 
           <label>Quantity:
-            <input type="number" name="quantity_{{ item.id }}" value="0" min="0" max="4">
+            <input type="number" name="quantity_{{ product.id }}" value="0" min="0" max="4">
           </label>
         </div>
       {% endfor %}
     </div>
-    
-        <div class="submitform">
-            <input type="submit" value="Submit">
-        </div>
-    </form>
+
+    <!-- Pagination placed outside the product loop -->
+    <div class="pagination">
+  <div class="page-count">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</div>
+
+  <div class="nav-links">
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">« Prev</a>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">Next »</a>
+    {% endif %}
+  </div>
+</div>
+
+    <div class="submitform">
+      <input type="submit" value="Submit Order" class="submit-button">
+    </div>
+  </form>
 </div>
 {% endblock content %}

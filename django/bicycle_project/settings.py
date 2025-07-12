@@ -12,9 +12,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+
+# settings.py
+import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -26,8 +29,8 @@ SECRET_KEY = 'django-insecure-l0zc=zg@0ke1745i8wj=s+kh0n2xk19%itgj!v4hpmxu-i$*$k
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://*.amazonaws.com', 'http://127.0.0.1', 'http://localhost', 'http://*.elasticbeanstalk.com'  "https://localhost:8000",
-    "https://127.0.0.1:8000, http://127.0.0.1:8000/"]
+CSRF_TRUSTED_ORIGINS = ['https://*.amazonaws.com', 'http://127.0.0.1', 'http://localhost', 'http://*.elasticbeanstalk.com',  'https://localhost:8000',
+    'https://127.0.0.1:8000']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Application definition
@@ -40,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bicycle_app',
-    'storages',
+    #uncomment during production
+   # 'storages',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     #'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'bicycle_project.urls'
 
@@ -82,6 +87,7 @@ DATABASES = {
         'NAME': BASE_DIR / "db.sqlite3",
     }
 }
+#for production, you can use the following settings for MySQL
 # DATABASES = {
 #   'default': {
 #     'ENGINE':'django.db.backends.mysql',
@@ -97,7 +103,11 @@ DATABASES = {
 # }
 
 
-
+# ─── i18n & Timezone ───────────────────────────────────────────────────────────
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE     = 'UTC'
+USE_I18N      = True
+USE_TZ        = True
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -130,8 +140,11 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# ─── Media (uploads) & Static files
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
@@ -141,16 +154,22 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STORAGES = {
-    "default": {
-        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
-    },
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-    },
-}
+# Force everything to disk for now:
+DEFAULT_FILE_STORAGE    = "django.core.files.storage.FileSystemStorage"
+STATICFILES_STORAGE     = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
-AWS_STORAGE_BUCKET_NAME = 'bicycle-project-us-west-2-598549003646'
-AWS_S3_REGION_NAME = 'us-west-2'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
+# (When you’re ready for S3, re-add 'storages' to INSTALLED_APPS and drop in back your AWS_* settings + a STORAGES dict.)
+
+#STORAGES = {
+#    "default": {
+#        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+#    },
+#    "staticfiles": {
+#        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+#    },
+#}
+
+#AWS_STORAGE_BUCKET_NAME = 'bicycle-project-us-west-2-598549003646'
+#AWS_S3_REGION_NAME = 'us-west-2'
+#AWS_S3_FILE_OVERWRITE = False
+#AWS_DEFAULT_ACL = None

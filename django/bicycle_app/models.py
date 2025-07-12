@@ -9,6 +9,9 @@ class Product(models.Model):
   product_group = models.IntegerField()
   image_url = models.ImageField(max_length=255)
 
+def __str__(self):
+        return self.product_name  # Ensures name shows up in admin
+
 class Order(models.Model):
   amount = models.DecimalField(max_digits=8, decimal_places=2)
   order_date_time = models.DateTimeField(default=timezone.now)
