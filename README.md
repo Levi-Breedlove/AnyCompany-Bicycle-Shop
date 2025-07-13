@@ -1,7 +1,9 @@
 # AnyCompanyBicycleShop
 # Django Bicycle Parts E-commerce Application
 
-This project is a Django-based e-commerce application for selling bicycle parts. It provides functionality for managing products, orders, and customer interactions in a bicycle parts online store.
+This project is a Django-based e-commerce application for selling bicycle parts. 
+
+It provides functionality for managing products, orders, and customer interactions in a bicycle parts online store.
 
 The application is designed to run on AWS infrastructure, utilizing services such as RDS for the database and S3 for static file storage.
 
