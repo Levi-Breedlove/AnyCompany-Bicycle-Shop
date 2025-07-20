@@ -51,6 +51,7 @@ django/
 ```
 
 ### Key Files:
+
 - `setup.sh`: Script for setting up the Django project and configuring the environment.
 
 - `django/bicycle_project/settings.py`: Main Django settings file.
@@ -70,6 +71,7 @@ django/
 - `Frontend assets (HTML, CSS)`: are separated cleanly from logic in views.py.
 
 ### Important Integration Points:
+
 - **Database:** MySQL database hosted on Amazon RDS
 
 - **Static Files:** Stored on Amazon S3
@@ -86,7 +88,6 @@ The application utilizes the following AWS resources:
 - **Elastic Beanstalk:** Manages the application deployment and scaling
 
 ## Architecture Diagram
-
 
 ![Django Bicycle Parts E-commerce Application Architecture](./django/media/websitearchitecture.png)
 
@@ -137,11 +138,10 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
    python manage.py loaddata products.json orders.json order_details.json 
    ```
 
-This will load:
-
-products.json – Product catalog
-orders.json – Order metadata
-order_details.json – Line items for each order
+5. This will load:
+   - `products.json` – Product catalog
+   - `orders.json` – Order metadata
+   - `order_details`.json – Line items for each order
 
 **⚠️ If orders.json or order_details.json fail to load (e.g. due to model mismatches):** 
    - Ignore the error and proceed — products.json is the only required fixture for proper module loading. 
@@ -226,10 +226,9 @@ order_details.json – Line items for each order
 
    ![Django Bicycle Parts E-commerce Application Architecture](./django/media/product-added1.png)
    ![Django Bicycle Parts E-commerce Application Architecture](./django/media/product-added2.png)
----
-> **Pro tip:** if you need to bulk-load this into your `products.json`, here’s a fixture snippet you can drop in and then run `loaddata products.json`:
-
-```
+    ---
+    > **Pro tip:** if you need to bulk-load this into your `products.json`, here’s a fixture snippet you can drop in and then run `loaddata products.json`:
+    ```
 {
   "model": "bicycle_app.product",
   "pk": 4,
