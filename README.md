@@ -280,35 +280,6 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
     - Visit /order_history/ to view a history of all previous orders stored in the system.
       ![Django Bicycle Parts E-commerce Application](./django/media/orderhistory1.png)
 
-## Potential Implementations
-**This Django-based bicycle shop is functional for demo and testing, but there are key opportunities to expand the project:**
-
-- **User Features to Add:**
-  - [ ] User Login/Register	Enable personal order history, authentication, and secure sessions
-
-  - [ ] Shopping Cart Page	Allow users to build a cart before submitting, with item remove/edit
-
-  - [ ] Stripe Integration	Add real payment processing using Stripe Checkout
-
-  - [ ] Order Tracking View	Allow users to track past orders and print receipts
-
-  - [ ] Image Previews	Add thumbnails in admin and checkout confirmation
-
-  - [ ] Quantity Updates in Cart	Support dynamic quantity changes and real-time total updates
-
-  - [ ] Email Order Receipt	Send confirmation emails using Django's email backend (SMTP)  
-    
-- **The AnyCompany Bicycle Shop application successfully demonstrates core e-commerce functionality using Django:**  
-  - Dynamic product listing
-
-  - Server-side order processing
-
-  - Model relationships (Product → Order_Item → Order)
-
-  - Admin-based inventory management
-
-  - With additional layers like authentication, payment flow, and interactive cart features, this project can evolve into a robust, real-world shopping solution.
-
 ## AWS Deployment
 
 This application is designed to be deployed on AWS Elastic Beanstalk and migrated to RDS as a database. 
@@ -354,4 +325,32 @@ This application is designed to be deployed on AWS Elastic Beanstalk and migrate
                     |
                     v
                [S3 Bucket]
+   
+## Potential Implementations
+**This Django-based bicycle shop is functional for demo and testing, but there are key opportunities to expand the project:**
 
+- **User Features to Add:**
+  - [ ] User Login/Register	Enable personal order history, authentication, and secure sessions
+
+  - [ ] Shopping Cart Page	Allow users to build a cart before submitting, with item remove/edit
+
+  - [ ] Stripe Integration	Add real payment processing using Stripe Checkout
+
+  - [ ] Order Tracking View	Allow users to track past orders and print receipts
+
+  - [ ] Image Previews	Add thumbnails in admin and checkout confirmation
+
+  - [ ] Quantity Updates in Cart	Support dynamic quantity changes and real-time total updates
+
+  - [ ] Email Order Receipt	Send confirmation emails using Django's email backend (SMTP)  
+    
+- **The AnyCompany Bicycle Shop application successfully demonstrates core e-commerce functionality using Django:**  
+  - Dynamic product listing
+
+  - Server-side order processing
+
+  - Model relationships (Product → Order_Item → Order)
+
+  - Admin-based inventory management
+
+  - With additional layers like authentication, payment flow, and interactive cart features, this project can evolve into a robust, real-world shopping solution.
