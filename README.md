@@ -108,7 +108,6 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
    ./setup.sh
    ```
 
-
 **This script will:**
    - Create a virtual environment
    - Install Django and other dependencies
@@ -191,7 +190,7 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
    - Open your browser at
      http://localhost:8000/admin/
 
-     ![Django Bicycle Parts E-commerce Application Architecture](./django/media/django-admin.png)
+     ![Django Bicycle Parts E-commerce Application](./django/media/django-admin.png)
 
 4. Once signed in, you’ll see the following sections in the admin dashboard:
      - **Authentication and Authorization**
@@ -205,7 +204,7 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
 
      - **Recent actions**  — quick link to edits you’ve made most recently.
 
-       ![Django Bicycle Parts E-commerce Application Architecture](./django/media/site-admin.png)
+       ![Django Bicycle Parts E-commerce Application](./django/media/site-admin.png)
 
 ## Demo: Adding a Product via Admin (Rear Light)
 
@@ -215,15 +214,15 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
 
 3. Fill out the form:
 
-   ![Django Bicycle Parts E-commerce Application Architecture](./django/media/product-add.png)
+   ![Django Bicycle Parts E-commerce Application](./django/media/product-add.png)
 
 
 4. Click **Save**.  
 
 5. You’ll now see **“Rear Light”** listed under **Products** – you can click the **ID** number to edit it anytime.
 
-   ![Django Bicycle Parts E-commerce Application Architecture](./django/media/product-added1.png)
-   ![Django Bicycle Parts E-commerce Application Architecture](./django/media/product-added2.png)
+   ![Django Bicycle Parts E-commerce Application](./django/media/product-added1.png)
+   ![Django Bicycle Parts E-commerce Application](./django/media/product-added2.png)
     ---
 
 > **Pro tip:** if you need to bulk-load this into your `products.json`, here’s a fixture snippet you can drop in and then run `loaddata products.json`:
@@ -250,14 +249,14 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
    - Users can enter desired quantities (0–4) for any products they wish to order. 
      
    - Fields are validated to prevent submitting an empty cart.
-     ![Django Bicycle Parts E-commerce Application Architecture](./django/media/orders1.png)
-     ![Django Bicycle Parts E-commerce Application Architecture](./django/media/orders2.png)
+     ![Django Bicycle Parts E-commerce Application](./django/media/orders1.png)
+     ![Django Bicycle Parts E-commerce Application](./django/media/orders2.png)
 
 3. *Submit Order*
    - Click the Submit button at the bottom of the page. 
 
    - The form sends a POST request to the process_order view.
-     ![Django Bicycle Parts E-commerce Application Architecture](./django/media/orders3.png)
+     ![Django Bicycle Parts E-commerce Application](./django/media/orders3.png)
 
 4. *Order Processing Logic*
    - Only non-zero quantity products are processed.
@@ -265,7 +264,7 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
    - The server calculates individual line totals and an overall order amount.
 
    - A new Order and associated Order_Item records are created and stored in the database.
-     ![Django Bicycle Parts E-commerce Application Architecture](./django/media/table1.png)
+     ![Django Bicycle Parts E-commerce Application](./django/media/table1.png)
 
 5. *Order Confirmation*
    - After successful processing, users are redirected to a confirmation page showing:
@@ -274,12 +273,12 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
     - Each product ordered, quantity, and line total.
 
     - Total price for the order.
-      ![Django Bicycle Parts E-commerce Application Architecture](./django/media/ordersummary.png)
+      ![Django Bicycle Parts E-commerce Application](./django/media/ordersummary.png)
 
 
 6. *Order History*
     - Visit /order_history/ to view a history of all previous orders stored in the system.
-      ![Django Bicycle Parts E-commerce Application Architecture](./django/media/orderhistory1.png)
+      ![Django Bicycle Parts E-commerce Application](./django/media/orderhistory1.png)
 
 ## Potential Implementations
 **This Django-based bicycle shop is functional for demo and testing, but there are key opportunities to expand the project:**
