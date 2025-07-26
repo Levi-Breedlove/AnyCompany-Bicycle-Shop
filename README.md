@@ -109,47 +109,57 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
    ```
 
 **This script will:**
-   - Create a virtual environment
+   - Create a new virtual environment & kill all other virtual environments
    - Install Django and other dependencies
    - Set up the Django project structure
    - Configure the database connection
+   - Reset order history on new application launch
 
-## Running the Application
+## Running the Application manual without ***./setup.sh***
 
 1. Activate the virtual environment:
    ```
-   source django/.venv/bin/activate
+   python -m venv .venv && source .venv/bin/activate
    ```
 
 2. Change Directories:
    ```
    cd django
    ```
-3. Run migrations:
+
+2. Install Django: 
+   ```
+   pip install django
+   ```
+
+3. Install MySQL:
+   ```
+   pip install pymysql
+   ```
+
+4. Run migrations:
    ```
    python manage.py migrate
    ```
 
-4. Load sample data:
+5. Load sample data:
    ```
-   python manage.py loaddata products.json orders.json order_details.json 
+   python manage.py loaddata products.json 
    ```
 
-5. This will load:
+6. This will load:
    - `products.json` – Product catalog
+
+**You can also clone db info into json to hard load data for**
    - `orders.json` – Order metadata
-   - `order_details`.json – Line items for each order
+   - `order_details.json` – Line items for each order
 
-**⚠️ If orders.json or order_details.json fail to load (e.g. due to model mismatches):** 
-   - Ignore the error and proceed — products.json is the only required fixture for proper module loading. 
-   - Once loaded, the application will automatically reflect this data in the interface and database.
-
-5. Start the development server:
+7. Start the development server:
    ```
    python manage.py runserver
    ```
 
-6. Access the application at `http://localhost:8000`
+8. Access the application at `http://localhost:8000`
 
 ### The Website Loads With Product Fixtures:
 
@@ -264,6 +274,7 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
    - The server calculates individual line totals and an overall order amount.
 
    - A new Order and associated Order_Item records are created and stored in the database.
+   
      ![Django Bicycle Parts E-commerce Application Architecture](./django/media/table1.png)
 
 5. *Order Confirmation*
