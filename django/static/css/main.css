@@ -72,24 +72,29 @@ h2 {
 }
 
 .order_summary {
-    table {
-        width: 100%;
-    }
-    td { 
-        text-align: left; 
-        padding-right: 4px;
-    }
-    td:nth-child(2) { 
-        text-align: left; 
-        padding-left: 4px;
-    }
-    td colspan {
-        text-align: left;
-    }
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
     color: black;
+}
+
+.order_summary table {
+    width: 100%;
+}
+
+.order_summary td { 
+    text-align: left; 
+    padding-right: 4px;
+}
+
+.order_summary td:nth-child(2) { 
+    text-align: left; 
+    padding-left: 4px;
+}
+
+.order_summary td[colspan] {
+    text-align: left;
+}
+
+.order_summary tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
 .submitform input {
@@ -160,22 +165,23 @@ a {
     margin-right: 5px;
 }
 
-.services {
-    float: left;
-    width: 100%;
-}
 
-.footer {
-    width: calc(100% - 1px);
-    margin: 0 0px;
-    clear: both;
-    padding: 0.25rem 0;
-    background-color: black;
-    color: white;
-    font-size: 12px;
-    text-align: center;
-}
 
+
+
+  /* 4) Tidy up the footer */
+ .footer {
+  margin: 0;
+  clear: both;
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+  position: center;
+  padding: 0.75rem 0;
+  text-align: center;
+}
 /* 1) no bottom margin on the h2 in that column */
 #location-link h2 {
   margin-bottom: 0;
@@ -254,211 +260,130 @@ a {
   text-align: center;
 }
 
-/* ── Flush Services image up under the blue bar ──────────────── */
-
-/* ── Gray card for Services ─────────────────────────── */
-#services-link {             
-  margin: 22px 10px;           
-  background: white;       
-  padding: 0;                  
-  margin-left:  10px;
-  margin-right: 10px;                  
-  width:73.5%;                
+/* ────────────── Responsive Services Section ────────────── */
+#services-link {
+  margin: 2rem 0;
+  padding: 0 0px;
+  width: 100%;
   box-sizing: border-box;
-  position: relative;
-  
+  overflow-x: auto;
+}
+
+#services-link > h2 {
+  margin: 0;
+  padding: 1rem 0.5rem;
+  background: darkblue;
+  color: white;
+  font-family: Copperplate, serif;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#services-link .services-wrapper {
+  display: grid;
+  grid-template-columns: 1fr minmax(250px, 900px) 1fr;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+  background: #ffffff00;
+}
+
+#services-link .image-box.left,
+#services-link .image-box.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0px;
+  max-width: 600px;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+#services-link .image-box.left img {
+  width: 100%;
+  max-width: 600px;
+  min-width: 1px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
   
 }
 
-/* Flush the blue bar right into the gray */
-#services-link > h2 {
-  margin: 0;                   /* kill default top/bottom */
-  padding: 10px;               /* breathing room inside the blue bar */
+#services-link .image-box.right img {
+  width: 100%;
+  max-width: 250px;
+  min-width: 1px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+#services-link .services-text {
+  width: 100%;
+  max-width: 850px;
+  min-width: 250px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 auto;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow: auto;
+}
+
+#services-link .services-text ul {
+  padding-left: 0.8em;
+  margin: 0.5rem 0;
+  list-style-position: inside;
   text-align: center;
 }
 
-/* Add padding around the inner content */
-#services-link > .services-wrapper {
-  padding: 0px;               /* your gray will wrap both image & text */
+#services-link .services-text ul li {
+  margin-left: 0;
+  margin-bottom: 0.2em;
+  padding: 0;
+  text-align: left;
+  list-style-position: inside;
+  padding-left: 40%;
 }
 
-/* If you want the flex container itself to sit flush: */
-.services-wrapper {
-  margin: 0; 
-  /* remove any earlier margins */
+#services-link .services-text p {
+  margin: 0.5rem 0;
 }
 
-#services-link .cert {
-  position: absolute;
-  bottom: 8rem;                     /* 16px up from the card’s bottom */
-  left:   0rem;                     /* 16px in from the card’s left */
-  /* let it scale a bit, but cap its size so it never gets giant or too tiny */
-  width: clamp(120px, 15%, 160px);  
-}
 
-#services-link .cert img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 8px solid transparent;  
-  box-sizing: border-box;    
-  padding: 8px; 
-  
-}
-/* wrap all three columns in this */
 
-#services-link .services-text {
-  float: none;           /* take it out of the float stack             */
-  width: 75%;            /* any width you like (50–70 % works well)    */
-  margin: 0 auto;        /* ⬅︎⬅︎ puts that block in the horizontal center */
-  text-align: center;  
-  /* existing rules… */
-  padding-left: 30px;  
-  box-sizing: border-box;
-  border-left: 10px solid transparent;
-
-/* center the actual paragraph text           */
-}
-
-/* 2️⃣  If you have a bulleted list and want the bullets left-aligned
-      (optional — delete if you like them centered) */
-#services-link .services-text ul {
-  display: inline-block; /* makes the UL honor text-align:center above */
-  text-align: left;      /* bullets and text line up under each other  */
-  
-}
-
-#services-link .services-text p,
-
-#services-link .services-text ol {
-  margin: 0.5rem 0;          /* top & bottom spacing — adjust to taste   */
-  line-height: 1;        /* a touch more line spacing (optional)     */
-}
-
-#services-link .services-text ul {
-  margin-top: 0;        /* nuke the default gap above the list */
-  padding-left: 1.25rem;/* keep your bullets indented nicely */
-}
-
-@media (max-width: 767px) {
-  /* give the lane back to the text */
-  #services-link { padding-left: 0; }
-
-  /* put the badge back in normal flow, centred */
-  #services-link .cert {
-    position: static;        /* no absolute pinning       */
-    margin: 1rem auto 0;     /* centred under the heading */
-    width: 140px;            /* optional -- smaller badge */
+/* Responsive: hide images below 600px and let text fill grid */
+/* @media (max-width: 600px) {
+  #services-link .services-wrapper {
+    grid-template-columns: 1fr;
   }
-}
-
-
-
-/* Mobile phones (up to 600px wide) */
-@media (max-width: 600px) {
-  /* 1) Make the Services card itself more compact */
-  #services-link {
-    width: 100%;               /* full-width on small screens */
-    padding-block: 0.5rem;     /* less top/bottom space */
+  #services-link .image-box.left,
+  #services-link .image-box.right {
+    display: none;
   }
-  #services-link > h2 {
-    padding-block: 0.5rem;     /* smaller blue bar height */
-    font-size: 1.2rem;         /* scale down the heading text */
-  }
-
-  /* 2) Tweak the badge so it’s not huge */
-  #services-link .cert {
-    width: 100px !important;   /* lock into a smaller width */
-    bottom: 1rem;              /* lift it up a bit */
-    left: 50%;                 /* center under Services bar */
-    transform: translateX(-50%);
-  }
-
-  /* 3) Shrink the paragraph text & gap */
   #services-link .services-text {
-    width: auto;
-    margin: 0 1rem;
-    padding-left: 0;
-    border-left: none;
+    max-width: 100vw;
+    min-width: 0;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: normal;
     text-align: center;
-    font-size: 0.9rem;
   }
-  #services-link .services-text p,
-  #services-link .services-text ul {
-    margin: 0.75rem 0;
-    line-height: 1.3;
-  }
+} */
 
-  /* 4) Tidy up the footer */
-  .footer {
-    font-size: 0.7rem;         /* smaller legal text */
-    padding-block: 0.25rem;    /* less vertical padding */
-  }
+/* 1) Reset defaults & ensure we can hide overflow */
+html, body {
+  padding: 0;
+  margin: 0;        /* hides any scrollbars when we zoom out */              /* (optional) if you want to cap height too */
+  box-sizing: border-box;
+  height:100%;
 }
 
-@media only screen and (max-width: 768px) {
-    .services-section {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 500px;
-        background-color: white;
-        padding: 10px;
-        text-align: center;
-        font-size: 12px;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-        border-radius: 8px 8px 0 0;
-    }
-}
 
-@media only screen and (min-width: 769px) {
-    .services-section {
-        position: fixed;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60%;
-        background-color: white;
-        padding: 20px;
-        text-align: center;
-        font-size: 14px;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
-        border-radius: 12px 12px 0 0;
-        z-index: 999;
-    }
-}
-
-@media only screen and (min-width: 769px) {
-  #services-link {
-    /* back into the document flow */
-    position: static;      /* or simply remove position entirely */
-    clear: both;           /* sit below any floated columns */
-    float: none;           /* cancel any earlier floats */
-
-    /* control width & center */
-    width: 80%;            /* or whatever percentage you like */
-    max-width: 900px;      /* optional cap */
-    margin: 50px auto 0;   /* top-margin to separate from content, auto LR for centering */
-    margin-top: 60px;  
-    /* preserve your styling */
-    background: white;
-    box-sizing: border-box;
-    padding: 0;
-  }
-
-  /* keep the “Services” bar snug against its card */
-  #services-link > h2 {
-    margin: 0;
-    padding: 10px;
-  }
-}
-
-#services-link { position: relative; }
-#services-link .cert {
-  position: absolute;
-  top: 40px;
-  left: 0px;
-  width: clamp(120px,15%,160px);
-}

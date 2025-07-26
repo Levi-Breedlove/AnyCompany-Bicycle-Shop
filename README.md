@@ -264,7 +264,9 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
    - The server calculates individual line totals and an overall order amount.
 
    - A new Order and associated Order_Item records are created and stored in the database.
+
      ![Django Bicycle Parts E-commerce Application](./django/media/table1.png)
+     
 
 5. *Order Confirmation*
    - After successful processing, users are redirected to a confirmation page showing:

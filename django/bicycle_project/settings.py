@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 
 # settings.py
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bicycle_app',
-    #uncomment during production
-   # 'storages',
+   # uncomment during production/AWS
+   #'storages',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +79,7 @@ WSGI_APPLICATION = 'bicycle_project.wsgi.application'
 
 
 # Database
+# Comment out during production/AWS
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 DATABASES = {
     'default': {
@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': BASE_DIR / "db.sqlite3",
     }
 }
-#for production, you can use the following settings for MySQL
+# For production, you can use the following settings for MySQL/AWS Deployment
 # DATABASES = {
 #   'default': {
 #     'ENGINE':'django.db.backends.mysql',
@@ -103,11 +103,6 @@ DATABASES = {
 # }
 
 
-# ─── i18n & Timezone ───────────────────────────────────────────────────────────
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE     = 'UTC'
-USE_I18N      = True
-USE_TZ        = True
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -143,11 +138,12 @@ USE_TZ = True
 # ─── Media (uploads) & Static files
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
