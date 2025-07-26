@@ -153,7 +153,8 @@ This diagram illustrates the high-level architecture of the Django Bicycle Parts
 **You can also clone db info into json to hard load data for**
    - `orders.json` – Order metadata
    - `order_details.json` – Line items for each order
-
+   - `order_history.json` - Order History 
+   
 7. Start the development server:
    ```
    python manage.py runserver
